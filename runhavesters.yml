@@ -1,0 +1,28 @@
+---
+- hosts: stream_havester_1
+  remote_user: ubuntu
+  tasks:
+  - name: copy .jar file to cloud node
+    copy: src=./CollectData/CollectData_Melb_Perth_Ade.jar dest=/home/ubuntu/CollectData_Melb_Perth_Ade.jar
+    sudo: yes
+  - name: run havester appliction
+    raw: sudo nohub java -jar /home/ubuntu/CollectData_Melb_Perth_Ade.jar <REPLACE_IP_HERE> <REPLACE_PORT_HERE>
+
+
+- hosts: stream_havester_2
+  remote_user: ubuntu
+  tasks:
+  - name: copy .jar file to cloud node
+    copy: src=./CollectData/CollectData_Sydney_Brisbane.jar dest=/home/ubuntu/CollectData_Sydney_Brisbane.jar
+    sudo: yes
+  - name: run havester appliction
+    raw: sudo nohub java -jar /home/ubuntu/CollectData_Sydney_Brisbane.jar <REPLACE_IP_HERE> <REPLACE_PORT_HERE>
+
+- hosts: usertimeline_havesters
+  remote_user: ubuntu
+  tasks:
+  - name: copy .jar file to cloud node
+    copy: src=./CollectData/userTimeLine.jar dest=/home/ubuntu/userTimeLine.jar
+    sudo: yes
+  - name: run havester appliction
+    raw: sudo nohub java -jar /home/ubuntu/userTimeLine.jar <REPLACE_DATABASE_NAME_HERE> <REPLACE_PORT_HERE>

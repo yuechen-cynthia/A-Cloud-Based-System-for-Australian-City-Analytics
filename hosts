@@ -1,0 +1,23 @@
+[local]
+localhost	ansible_connection=local
+[testservers]
+144.6.231.68 ansible_connection=ssh
+
+[stream_havester_1]
+#add IPs here
+
+[stream_havester_2]
+#add IPs here
+
+[stream_havesters]
+stream_havester_1
+stream_havester_2
+
+[usertimeline_havesters]
+#add IPs here
+
+[webservers]
+#add IPs here
+[harvesters]
+stream_havesters
+usertimeline_havesters

@@ -1,0 +1,9 @@
+---
+- hosts: webserver
+  remote_user: ubuntu
+  tasks:
+  - name: copy node.js files to cloud node
+    copy: src=./TwitterView dest=/home/ubuntu/
+    sudo: yes
+  - name: run webserver appliction
+    raw: sudo nohup nodejs /home/ubuntu/TwitterView/Twitter.js &

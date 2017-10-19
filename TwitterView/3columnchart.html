@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        
+        var Adelaide = parseFloat("<%= JSON.stringify(Adelaide) %>");
+        var Adelaide_Alcohol = parseFloat("<%= JSON.stringify(Adelaide_Alcohol) %>");
+        var Adelaide_Mental = parseFloat("<%= JSON.stringify(Adelaide_Mental) %>")/100;
+        var Adelaide_Smoker = parseFloat("<%= JSON.stringify(Adelaide_Smoker) %>");
+        var Brisbane = parseFloat("<%= JSON.stringify(Brisbane) %>");
+        var Brisbane_Alcohol = parseFloat("<%= JSON.stringify(Brisbane_Alcohol) %>");
+        var Brisbane_Mental = parseFloat("<%= JSON.stringify(Brisbane_Mental) %>")/100;
+        var Brisbane_Smoker = parseFloat("<%= JSON.stringify(Brisbane_Smoker) %>");
+        var Melbourne = parseFloat("<%= JSON.stringify(Melbourne) %>");
+        var Melbourne_Alcohol = parseFloat("<%= JSON.stringify(Melbourne_Alcohol) %>");
+        var Melbourne_Mental = parseFloat("<%= JSON.stringify(Melbourne_Mental) %>")/100;
+        var Melbourne_Smoker = parseFloat("<%= JSON.stringify(Melbourne_Smoker) %>");
+        var Perth = parseFloat("<%= JSON.stringify(Perth) %>");
+        var Perth_Alcohol = parseFloat("<%= JSON.stringify(Perth_Alcohol) %>");
+        var Perth_Mental = parseFloat("<%= JSON.stringify(Perth_Mental) %>")/100;
+        var Perth_Smoker = parseFloat("<%= JSON.stringify(Perth_Smoker) %>");
+        var Sydney = parseFloat("<%= JSON.stringify(Sydney) %>");
+        var Sydney_Alcohol = parseFloat("<%= JSON.stringify(Sydney_Alcohol) %>");
+        var Sydney_Mental = parseFloat("<%= JSON.stringify(Sydney_Mental) %>")/100;
+        var Sydney_Smoker = parseFloat("<%= JSON.stringify(Sydney_Smoker) %>");
+
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Cities', 'Pressure Index', 'Alcohol Drinker Rate','Mental Health Admissions(per 1000 persons)','Smoker Rate'],
+          ['Adelaide', Adelaide, Adelaide_Alcohol,Adelaide_Mental,Adelaide_Smoker],
+          ['Brisbane', Brisbane, Brisbane_Alcohol,Brisbane_Mental,Brisbane_Smoker],
+          ['Melbourne', Melbourne, Melbourne_Alcohol,Melbourne_Mental,Melbourne_Smoker],
+          ['Sydney', Sydney, Sydney_Alcohol,Sydney_Mental,Sydney_Smoker],
+          ['Perth', Perth, Perth_Alcohol,Perth_Mental,Perth_Smoker]
+        ]);
+
+        var options = {
+          width: 900,
+          chart: {
+            title: 'Pressure of citizens',
+            subtitle: '5 main cities in Australia'
+          },
+          series: {
+            0: { axis: '' }, // Bind series 0 to an axis named 'distance'.
+            1: { axis: '' } // Bind series 1 to an axis named 'brightness'.
+          },
+          axes: {
+            y: {
+              distance: {label: ''}, // Left y-axis.
+              brightness: {side: 'right', label: ''} // Right y-axis.
+            }
+          }
+        };
+
+      var chart = new google.charts.Bar(document.getElementById('dual_y_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="dual_y_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

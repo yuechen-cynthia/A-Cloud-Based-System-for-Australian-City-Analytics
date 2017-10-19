@@ -1,0 +1,109 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Time Spot');
+      data.addColumn('number', 'Frequency of Tweets');
+      data.addColumn('number', 'Positive Tweets');
+      //data.addColumn('number', 'Transformers: Age of Extinction');
+         var t1 = parseFloat("<%= JSON.stringify(t1) %>");
+         var t2 = parseFloat("<%= JSON.stringify(t2) %>");
+         var t3= parseFloat("<%= JSON.stringify(t3) %>");
+         var t4= parseFloat("<%= JSON.stringify(t4) %>");
+         var t5= parseFloat("<%= JSON.stringify(t5) %>");
+         var t6= parseFloat("<%= JSON.stringify(t6) %>");
+         var t7= parseFloat("<%= JSON.stringify(t7) %>");
+         var t8= parseFloat("<%= JSON.stringify(t8) %>");
+         var t9= parseFloat("<%= JSON.stringify(t9) %>");
+         var t10= parseFloat("<%= JSON.stringify(t10) %>");
+         var t11= parseFloat("<%= JSON.stringify(t11) %>");
+         var t12= parseFloat("<%= JSON.stringify(t12) %>");
+         var t13= parseFloat("<%= JSON.stringify(t13) %>");
+         var t14= parseFloat("<%= JSON.stringify(t14) %>");
+         var t15= parseFloat("<%= JSON.stringify(t15) %>");
+         var t16= parseFloat("<%= JSON.stringify(t16) %>");
+         var t17= parseFloat("<%= JSON.stringify(t17) %>");
+         var t18= parseFloat("<%= JSON.stringify(t18) %>");
+         var t19= parseFloat("<%= JSON.stringify(t19) %>");
+         var t20= parseFloat("<%= JSON.stringify(t20) %>");
+         var t21= parseFloat("<%= JSON.stringify(t21) %>");
+         var t22= parseFloat("<%= JSON.stringify(t22) %>");
+         var t23= parseFloat("<%= JSON.stringify(t23) %>");
+         var t24= parseFloat("<%= JSON.stringify(t24) %>");
+         var h1 = parseFloat("<%= JSON.stringify(h1) %>");
+         var h2 = parseFloat("<%= JSON.stringify(h2) %>");
+         var h3= parseFloat("<%= JSON.stringify(h3) %>");
+         var h4= parseFloat("<%= JSON.stringify(h4) %>");
+         var h5= parseFloat("<%= JSON.stringify(h5) %>");
+         var h6= parseFloat("<%= JSON.stringify(h6) %>");
+         var h7= parseFloat("<%= JSON.stringify(h7) %>");
+         var h8= parseFloat("<%= JSON.stringify(h8) %>");
+         var h9= parseFloat("<%= JSON.stringify(h9) %>");
+         var h10= parseFloat("<%= JSON.stringify(h10) %>");
+         var h11= parseFloat("<%= JSON.stringify(h11) %>");
+         var h12= parseFloat("<%= JSON.stringify(h12) %>");
+         var h13= parseFloat("<%= JSON.stringify(h13) %>");
+         var h14= parseFloat("<%= JSON.stringify(h14) %>");
+         var h15= parseFloat("<%= JSON.stringify(h15) %>");
+         var h16= parseFloat("<%= JSON.stringify(h16) %>");
+         var h17= parseFloat("<%= JSON.stringify(h17) %>");
+         var h18= parseFloat("<%= JSON.stringify(h18) %>");
+         var h19= parseFloat("<%= JSON.stringify(h19) %>");
+         var h20= parseFloat("<%= JSON.stringify(h20) %>");
+         var h21= parseFloat("<%= JSON.stringify(h21) %>");
+         var h22= parseFloat("<%= JSON.stringify(h22) %>");
+         var h23= parseFloat("<%= JSON.stringify(h23) %>");
+         var h24= parseFloat("<%= JSON.stringify(h24) %>");
+      data.addRows([
+        [1,  t1, h1],
+        [2,  t2, h2],
+        [3,  t3, h3],
+        [4,  t4, h4],
+        [5,  t5, h5],
+        [6,  t6, h6],
+        [7,  t7, h7],
+        [8,  t8, h8],
+        [9,  t9, h9],
+        [10, t10, h10],
+        [11, t11, h11],
+        [12, t12, h12],
+        [13, t13, h13],
+        [14, t14, h14],
+        [15, t15, h15],
+        [16, t16, h16],
+        [17, t17, h17],
+        [18, t18, h18],
+        [19, t19, h19],
+        [20, t20, h20],
+        [21, t21, h21],
+        [22, t22, h22],
+        [23, t23, h23],
+        [24, t24, h24]
+      ]);
+ 
+      var options = {
+        chart: {
+          title: 'The Variety Of Mood',
+          subtitle: 'Search on Melbourne'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+    </script>
+</head>
+<body>
+<div id="linechart_material" style="width: 900px; height: 500px;"></div>
+</body>
+</html>

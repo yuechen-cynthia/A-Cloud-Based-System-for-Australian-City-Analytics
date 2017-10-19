@@ -1,0 +1,65 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Statistics');
+        data.addColumn('number', 'Pressure of Cities');
+        data.addColumn('number', 'Alcohol');
+        data.addColumn('number', 'Mental');
+        data.addColumn('number', 'Smoker');
+      
+        var Adelaide = parseFloat("<%= JSON.stringify(Adelaide) %>");
+        var Adelaide_Alcohol = parseFloat("<%= JSON.stringify(Adelaide_Alcohol) %>");
+        var Adelaide_Mental = parseFloat("<%= JSON.stringify(Adelaide_Mental) %>")/100;
+        var Adelaide_Smoker = parseFloat("<%= JSON.stringify(Adelaide_Smoker) %>");
+        var Brisbane = parseFloat("<%= JSON.stringify(Brisbane) %>");
+        var Brisbane_Alcohol = parseFloat("<%= JSON.stringify(Brisbane_Alcohol) %>");
+        var Brisbane_Mental = parseFloat("<%= JSON.stringify(Brisbane_Mental) %>")/100;
+        var Brisbane_Smoker = parseFloat("<%= JSON.stringify(Brisbane_Smoker) %>");
+        var Melbourne = parseFloat("<%= JSON.stringify(Melbourne) %>");
+        var Melbourne_Alcohol = parseFloat("<%= JSON.stringify(Melbourne_Alcohol) %>");
+        var Melbourne_Mental = parseFloat("<%= JSON.stringify(Melbourne_Mental) %>")/100;
+        var Melbourne_Smoker = parseFloat("<%= JSON.stringify(Melbourne_Smoker) %>");
+        var Perth = parseFloat("<%= JSON.stringify(Perth) %>");
+        var Perth_Alcohol = parseFloat("<%= JSON.stringify(Perth_Alcohol) %>");
+        var Perth_Mental = parseFloat("<%= JSON.stringify(Perth_Mental) %>")/100;
+        var Perth_Smoker = parseFloat("<%= JSON.stringify(Perth_Smoker) %>");
+        var Sydney = parseFloat("<%= JSON.stringify(Sydney) %>");
+        var Sydney_Alcohol = parseFloat("<%= JSON.stringify(Sydney_Alcohol) %>");
+        var Sydney_Mental = parseFloat("<%= JSON.stringify(Sydney_Mental) %>")/100;
+        var Sydney_Smoker = parseFloat("<%= JSON.stringify(Sydney_Smoker) %>");
+  
+      data.addRows([
+        [1,  Adelaide, Adelaide_Alcohol,Adelaide_Mental,Adelaide_Smoker],
+        [2,  Brisbane, Brisbane_Alcohol,Brisbane_Mental,Brisbane_Smoker],
+        [3,  Melbourne, Melbourne_Alcohol,Melbourne_Mental,Melbourne_Smoker],
+        [4,  Sydney, Sydney_Alcohol,Sydney_Mental,Sydney_Smoker],
+        [5,  Perth, Perth_Alcohol,Perth_Mental,Perth_Smoker]
+      ]);
+ 
+      var options = {
+        chart: {
+          title: 'Box Office Earnings in First Two Weeks of Opening',
+          subtitle: 'in millions of dollars (USD)'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+    </script>
+</head>
+<body>
+<div id="linechart_material" style="width: 900px; height: 500px;"></div>
+</body>
+</html>

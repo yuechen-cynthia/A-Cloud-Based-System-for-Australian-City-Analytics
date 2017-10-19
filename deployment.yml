@@ -1,0 +1,58 @@
+---
+- hosts: webserver
+  remote_user: ubuntu
+
+  tasks:
+  - name: install java step1
+    apt: name=software-properties-common state=present
+  - name: install java step2
+    raw: sudo add-apt-repository ppa:webupd8team/java
+    raw: sudo apt-get update
+  - name: install java step3
+    apt: name=oracle-java8-installer state=present
+    sudo: yes
+  - name: set enviromental viarbles
+    raw: sudo apt-get install oracle-java8-set-default
+  - name: test Java version
+    raw: java -version
+  - name: install couchdb from apt
+    apt: name=couchdb state=present
+    sudo: yes
+  - name: install NODE.JS step1
+    apt: name=python-software-properties state=present
+    apt: name=software-properties-common state=present
+  - name: install NODE.JS step2
+    raw: sudo add-apt-repository ppa:chris-lea/node.js
+    raw: apt-get update
+  - name: install NODE.JS step3
+    apt: name=nodejs state=present
+  - name: install NODE.JS modules , couchdb support
+    raw: npm install nano
+    raw: npm install express
+  - name: install NODE.JS modules , google-maps support
+    raw: npm install ejs
+  - name: install webserver
+    apt: name=apache2 state=present
+    sudo: yes
+
+- hosts: harvesters
+  remote_user: ubuntu
+  tasks:
+  - name: install java
+    apt: name=software-properties-common state=present
+  - name: install java 2
+    raw: sudo add-apt-repository ppa:webupd8team/java
+    raw: sudo apt-get update
+  - name: install java 3
+    apt: name=oracle-java8-installer state=present
+    sudo: yes
+  - name: set enviromental viarbles
+    raw: sudo apt-get install oracle-java8-set-default
+  - name: test Java version
+    raw: java -version
+  - name: install couchdb from apt
+    apt: name=couchdb state=present
+    sudo: yes
+  - name: copy local.ini file to replace the file on cloud
+    copy: src=./local.ini dest=/etc/couchdb/local.ini
+    sudo: yes

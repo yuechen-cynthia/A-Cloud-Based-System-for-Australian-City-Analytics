@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+		<!-- BASICS -->
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Australian City Analytics Presentation</title>
+        <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
+		<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/style.css">
+		<!-- skin -->
+    </head>
+	 
+
+
+
+
+
+
+    <body>
+		<section id="header" class="appear"></section>
+
+		<div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+			 <div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="fa fa-bars color-white"></span>
+					</button>
+					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">			Demostration
+					</a></h1>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+						<li class="active"><a href="Homepage.html">Home</a></li>
+						<li><a href="Homepage.html##section-about">About</a></li>
+						<li><a href="Homepage.html#section-works">Scenarios</a></li>
+
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+		</div>
+
+		
+		
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<!-- 插入图片的地方 -->
+
+     <head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            function htmlDecode(input){
+                var e = document.createElement('div');
+                e.innerHTML = input;
+                return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+            }
+
+            var hillary = parseFloat(htmlDecode("<%= JSON.stringify(hillary) %>"));
+            var trump = parseFloat(htmlDecode("<%= JSON.stringify(trump) %>"));
+
+            var data = google.visualization.arrayToDataTable([
+                ['Candidate', 'Rate of Support'],
+                ['Trump', trump],
+                ['Hillary', hillary]     
+            ]);
+
+            var options = {
+                title: 'Hillary vs Trump'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+<div id="piechart" style="width: 900px; height: 500px;margin:0 auto"></div>
+</body>
+
+
+
+
+
+
+<section id="section-services" class="section pad-bot30 bg-white">
+		<div class="container"> 
+		
+			<div class="row mar-bot40">
+				<div class="col-lg-4" >
+					<div class="align-center">
+
+
+						<p>
+		
+			  <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+
+						</p>
+					</div>
+				</div>
+					
+
+			
+			</div>	
+
+		</div>
+		</section>
+
+
+    	<section>
+
+
+
+
+
+    	</section>
+
+		<section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
+			<div class="container">
+            <div class="align-center pad-top40 pad-bot40">
+
+
+					<div id="piechart" style="width: 900px; height: 500px;"></div>
+
+            </div>
+			</div>	
+		</section>
+
+
+
+		
+
+	<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
+
+	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="js/skrollr.min.js"></script>		
+	<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.appear.js"></script>
+	<script src="js/validate.js"></script>
+    <script src="js/main.js"></script>
+
+
+	</body>
+</html>

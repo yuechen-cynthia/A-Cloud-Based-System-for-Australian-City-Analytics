@@ -1,0 +1,10 @@
+---
+- hosts: stream_havester_1
+  remote_user: ubuntu
+  tasks:
+  - name: copy .jar file to cloud node
+    copy: src=./Analysis/ dest=/home/ubuntu/
+    sudo: yes
+  - name: run havester appliction
+    raw: sudo nohub java -jar /home/ubuntu/Analysis_Scenrio1_Scenrio3.jar <REPLACE_IP_HERE> <REPLACE_PORT_HERE> &
+    raw: sudo nohub java -jar /home/ubuntu/Analysis_Scenrio2.jar <REPLACE_IP_HERE> <REPLACE_PORT_HERE> &

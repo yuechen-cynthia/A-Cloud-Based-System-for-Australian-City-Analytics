@@ -1,0 +1,39 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            function htmlDecode(input){
+                var e = document.createElement('div');
+                e.innerHTML = input;
+                return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+            }
+
+            var hillary = parseFloat(htmlDecode("<%= JSON.stringify(hillary) %>"));
+            var trump = parseFloat(htmlDecode("<%= JSON.stringify(trump) %>"));
+
+            var data = google.visualization.arrayToDataTable([
+                ['Candidate', 'Rate of Support'],
+                ['Hillary', hillary],
+                ['Trump', trump]
+                
+            ]);
+
+            var options = {
+                title: 'Hillary vs Trump'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
